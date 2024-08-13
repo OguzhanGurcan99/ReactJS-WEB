@@ -1,7 +1,13 @@
+import Loginpage from './components/Loginpage';
+
+const App = () => {
 
 
-function App() { 
-  
+  return (
+    <Loginpage></Loginpage>
+  );
+
+
 };
 
 
