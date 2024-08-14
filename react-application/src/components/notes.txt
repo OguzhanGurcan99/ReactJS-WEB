@@ -1,0 +1,10 @@
+<Router>
+      
+        <Route path="/" element={<Home />}>
+          <Route index element={<Home />} />
+          <Route path="/sale" element={<Sale />} />
+          <Route path="/rent" element={<Rent />} />
+          <Route path="/favorites" element={<Favourites />} />
+        </Route>
+      
+    </Router>

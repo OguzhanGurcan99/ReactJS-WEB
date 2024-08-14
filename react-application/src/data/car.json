@@ -1,0 +1,35 @@
+[
+    {
+        "brand": "Seat",
+        "model": "Leon",
+        "year": 2014,
+        "kilometer": 57301,
+        "color": "red",
+        "isForSale": true,
+        "isForRent": true,
+        "priceForSale": 500000,
+        "priceForRent": 2000
+    },
+    {
+        "brand": "Hyundai",
+        "model": "i20",
+        "year": 2018,
+        "kilometer": 13830,
+        "color": "white",
+        "isForSale": true,
+        "isForRent": false,
+        "priceForSale": 420500,
+        "priceForRent": 1600
+    },
+    {
+        "brand": "Mercedes",
+        "model": "C180",
+        "year": 2012,
+        "kilometer": 116145,
+        "color": "blue",
+        "isForSale": false,
+        "isForRent": true,
+        "priceForSale": 950000,
+        "priceForRent": 3500
+    }
+]

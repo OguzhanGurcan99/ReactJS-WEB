@@ -1,0 +1,20 @@
+.nav_bar{
+    height: 50px;
+    width: 100vw;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    box-shadow: 0 0 10px black;
+    background-color: azure;
+}
+
+
+.link_bar{
+    height: 50px;
+    width: 500px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 0 10px black;
+}
