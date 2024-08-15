@@ -1,0 +1,31 @@
+.card{
+    
+    height: 240px;
+    width: 240px;
+    margin: 15px;
+    border: 2px solid black;
+    display: flex;
+    flex-flow: column;
+}
+
+.card img{
+    height: 180px;
+    width: 240px;
+}
+
+.textContainer{
+    height: 60px;
+    width: 240px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.textContainer div{
+    text-align: center;
+    line-height: 30px;
+    width: 100%;
+    height: 50%;
+
+}

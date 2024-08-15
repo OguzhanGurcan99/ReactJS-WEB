@@ -1,11 +1,13 @@
 .nav_bar{
     height: 50px;
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-flow: row;
     justify-content: center;
     box-shadow: 0 0 10px black;
     background-color: azure;
+    position: sticky;
+    top: 0;
 }
 
 

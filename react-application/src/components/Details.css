@@ -1,0 +1,8 @@
+.detailsBar{
+    background-color: red;
+    height: 640px;
+    width: 220px;
+    margin-top: 15px;
+    position: sticky;
+    top: 65px;
+}
