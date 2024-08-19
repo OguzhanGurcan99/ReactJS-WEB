@@ -19,19 +19,34 @@ const Sale = () => {
     setCarsForSale(filteredCars);
   };
 
-  return (
-    <div className='fullPageSale'>
-      <Filter></Filter>
-      <div className='cardContainer'>
-        {carsForSale.map((car, index) => (
-          <Car carObject={car}></Car>
-        ))}
+
+  const [showDetailBar, setShowDetailBar] = useState(false);
+  const [selectedCar, setSelectedCar] = useState();
+
+  const displayDetailsBar = (car) => {
+    setShowDetailBar(true);
+    setSelectedCar(car);
+    
+    
+  }
+
+    
+
+
+    return (
+      <div className='fullPageSale'>
+        <Filter></Filter>
+        <div className='cardContainer'>
+          {carsForSale.map((car, index) => (
+            <Car carObject={car} showDetails={displayDetailsBar} ></Car>
+          ))}
+        </div>
+
+        <Details isclicked={showDetailBar} currentCar={selectedCar}></Details>
+
       </div>
+    );
+  };
 
-      <Details></Details>
 
-    </div>
-  );
-};
-
-export default Sale;
+  export default Sale;

@@ -6,12 +6,7 @@ import Favourites from "./components/Favourites";
 
 
 import Navbar from "./components/Navbar";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-
-
-
-
+import {  Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (

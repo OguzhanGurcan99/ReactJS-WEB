@@ -1,9 +1,20 @@
 .filter{
-    background-color: burlywood;
+    
     height: 640px;
     width: 220px;
     margin-top: 15px;
     position: sticky;
     top: 65px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    box-shadow: 0 0 8px gray;
+}
+
+.cityFilter, .townFilter, .brandFilter, .colorFilter, .typeFilter, .yearFilter, .kmFilter, .priceSaleFilter, .priceRentFilter, .buttonPanel{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
     
+
 }

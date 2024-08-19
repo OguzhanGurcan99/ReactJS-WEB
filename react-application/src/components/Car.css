@@ -1,4 +1,4 @@
-.card{
+.carContainer{
     
     height: 240px;
     width: 240px;
@@ -8,10 +8,12 @@
     flex-flow: column;
 }
 
-.card img{
+.carContainer img{
     height: 180px;
     width: 240px;
 }
+
+
 
 .textContainer{
     height: 60px;

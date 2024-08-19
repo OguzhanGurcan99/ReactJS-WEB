@@ -1,8 +1,37 @@
-.detailsBar{
-    background-color: red;
+.detailsBar {
     height: 640px;
     width: 220px;
     margin-top: 15px;
     position: sticky;
     top: 65px;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carDetailsTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.emptyDetailsBar {
+
+    height: 640px;
+    width: 220px;
+    margin-top: 15px;
+    position: sticky;
+    top: 65px;
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
 }
