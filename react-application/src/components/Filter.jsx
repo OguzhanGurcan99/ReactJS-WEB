@@ -5,6 +5,8 @@ import SelectBasic from '../filter_components/SelectBasic';
 
 import Button from '@mui/material/Button';
 
+import myCities from '../data/cities.json';
+import { useState } from 'react';
 
 const brandList = [
     "Hyundai",
@@ -48,16 +50,44 @@ const typeList = [
 
 
 const Filter = () => {
+    
+
+
+    const [cityList, setCityList] = useState( myCities.map(city => city.name));
+    
+    const [city, setCity] = useState('');
+    const [town ,setTown] = useState("");
+
+    const [townList, setTownList] = useState([]);
+    
+    const handleChangeCity = (param) => {
+        setCity(param);
+        setTownList(myCities.filter(x => x.name === param)[0].counties);
+    }
+
+    const handleChangeTown = (param) => {
+        setTown(param);
+    }
+
     return <div className='filter'>
 
         <div className='cityFilter'>
-            <SelectBasic tag="City"></SelectBasic>
+            <SelectBasic tag="City" element={city} elementList={cityList} handleChanged={(param) => handleChangeCity(param)}></SelectBasic>
         </div>
 
         <div className='townFilter'>
-            <SelectBasic tag="Town"></SelectBasic>
+            <SelectBasic tag="Town" element={town} elementList={townList} handleChanged={(param) => handleChangeTown(param)}></SelectBasic>
         </div>
 
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <div className='brandFilter'>
             <SelectCheckmark itemList={brandList} tag="Brand" ></SelectCheckmark>
         </div>

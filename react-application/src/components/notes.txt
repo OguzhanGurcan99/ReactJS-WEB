@@ -5,3 +5,10 @@
 
 
       </div>
+
+
+      {props.elementList.map((city, index) => (
+            <MenuItem key={index} value={city.name}>
+              {city.name}
+            </MenuItem>
+          ))}
