@@ -50,5 +50,44 @@
         "priceForSale": 950000,
         "priceForRent": 3500,
         "path": "../images/3.jpg"
+    },
+
+    {
+        "id": "4",
+        "brand": "Toyota",
+        "model": "Corolla",
+        "color": "white",
+        "type": "sedan",
+        "year": 2012,
+        "HP":150,
+        "engine":1.6,
+        "transmission": "automatic",
+        "kilometer": 116145,
+        "isForSale": true,
+        "isForRent": true,
+        "priceForSale": 950000,
+        "priceForRent": 3500,
+        "path": "../images/4.jpg"
+    },
+
+
+    {
+        "id": "5",
+        "brand": "Fiat",
+        "model": "Egea",
+        "color": "red",
+        "type": "sedan",
+        "year": 2012,
+        "HP":150,
+        "engine":1.6,
+        "transmission": "automatic",
+        "kilometer": 116145,
+        "isForSale": true,
+        "isForRent": true,
+        "priceForSale": 950000,
+        "priceForRent": 3500,
+        "path": "../images/5.jpg"
     }
+
+
 ]
