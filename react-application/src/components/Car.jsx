@@ -8,7 +8,6 @@ const Car = (props) => {
         <div className='textContainer'>
             <div>{props.carObject.brand + " " + props.carObject.model}</div>
             <div> {props.carObject.year}</div>
-
         </div>
 
 

@@ -36,6 +36,8 @@ const colorList = [
     "green",
     "white",
     "black",
+    "grey",
+    "yellow",
     "pink",
     "magenta"
 ]
@@ -46,19 +48,25 @@ const typeList = [
     "Station Wagon"
 ]
 
+const Filter = ({onFilterApply}) => {
 
+    const [isUserFiltering, setisUserFiltering] = useState(false);
 
-
-const Filter = () => {
-    
-
-
-    const [cityList, setCityList] = useState( myCities.map(city => city.name));
+    const [cityList, setCityList] = useState(myCities.map(city => city.name));
+    const [townList, setTownList] = useState([]);
     
     const [city, setCity] = useState('');
-    const [town ,setTown] = useState("");
+    const [town, setTown] = useState("");
 
-    const [townList, setTownList] = useState([]);
+    const [brand, setBrand] = useState('');
+    const [color, setColor] = useState('');
+    const [type, setType] = useState('');
+
+    const [minYear, setMinYear] = useState("");
+    const [maxYear, setMaxYear] = useState("");
+
+    const [minKm, setMinKm] = useState("");
+    const [maxKm, setMaxKm] = useState("");
     
     const handleChangeCity = (param) => {
         setCity(param);
@@ -68,6 +76,49 @@ const Filter = () => {
     const handleChangeTown = (param) => {
         setTown(param);
     }
+
+    const handleChangeBrand = (param) => {
+        setBrand(param);
+    }
+    
+    const handleChangeColor = (param) => {
+        setColor(param);
+    }
+
+    const handleChangeType = (param) => {
+        setType(param);
+    }
+
+    const handleChangeMinYear = (param) => {
+        setMinYear(param);
+    }
+
+    const handleChangeMaxYear = (param) => {
+        setMaxYear(param);
+    }
+
+    const handleClick = () => {
+        setisUserFiltering(true);
+        
+        const filterData = {"city" : city,
+                            "town" : town,
+                            "brand": brand,
+                            "color" : color,
+                            "type": type};
+        onFilterApply(filterData);
+    }
+
+    /*
+    console.log("City " + " : " + city);
+    console.log("Town " + " : " + townList);
+    console.log("Brand " + " : " + brand);
+    console.log("Color " + " : " + color);
+    console.log("Type " + " : " + type);
+    console.log("Year min " + " : " + minYear);
+    console.log("Year max " + " : " + maxYear);
+    console.log("Km min " + " : " + minKm);
+    console.log("Km max " + " : " + maxKm);
+*/
 
     return <div className='filter'>
 
@@ -79,28 +130,19 @@ const Filter = () => {
             <SelectBasic tag="Town" element={town} elementList={townList} handleChanged={(param) => handleChangeTown(param)}></SelectBasic>
         </div>
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <div className='brandFilter'>
-            <SelectCheckmark itemList={brandList} tag="Brand" ></SelectCheckmark>
+            <SelectCheckmark itemList={brandList} tag="Brand" handleChanged={(param) => handleChangeBrand(param)} ></SelectCheckmark>
         </div>
         <div className='colorFilter'>
-            <SelectCheckmark itemList={colorList} tag="Color" ></SelectCheckmark>
+            <SelectCheckmark itemList={colorList} tag="Color" handleChanged={(param) => handleChangeColor(param)}></SelectCheckmark>
         </div>
         <div className='typeFilter'>
-            <SelectCheckmark itemList={typeList} tag="Type"></SelectCheckmark>
+            <SelectCheckmark itemList={typeList} tag="Type" handleChanged={(param) => handleChangeType(param)}></SelectCheckmark>
         </div>
 
         <div className='yearFilter'>
-            <NumberSelector placeholderText="year min"></NumberSelector>
-            <NumberSelector placeholderText="year max"></NumberSelector>
+            <NumberSelector placeholderText="year min" handleChanged={(param) => handleChangeMinYear(param)} ></NumberSelector>
+            <NumberSelector placeholderText="year max" handleChanged={(param) => handleChangeMaxYear(param)}></NumberSelector>
 
         </div>
 
@@ -127,17 +169,9 @@ const Filter = () => {
 
         <div className='buttonPanel'>
 
-        <Button variant="contained">Apply</Button>
-        <Button variant="outlined">Clear</Button>
+            <Button variant="contained" onClick={handleClick}>Apply</Button>
+            <Button variant="outlined">Clear</Button>
         </div>
-
-
-
-
-
-
-
-
     </div>
 
 }

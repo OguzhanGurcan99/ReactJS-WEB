@@ -12,3 +12,6 @@
               {city.name}
             </MenuItem>
           ))}
+
+
+          onChange: (event) => console.log(`the input value is: ${event.target.value}`)

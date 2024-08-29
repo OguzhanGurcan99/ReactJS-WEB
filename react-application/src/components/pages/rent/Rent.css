@@ -7,12 +7,17 @@
     justify-content: space-evenly;
 }
 
-.cardContainerRent{
-    height: 100%;
+.cardContainer{
+    
     width: 1000px;
     display: flex;
     flex-flow: row;
+    flex-wrap: wrap;
     box-shadow: 0 0 8px black;
 
+
+    justify-content: space-evenly;
+
 }
+
 

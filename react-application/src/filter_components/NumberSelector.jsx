@@ -5,7 +5,28 @@ import {
 } from '@mui/base/Unstable_NumberInput';
 import { styled } from '@mui/system';
 
+
 const NumberSelector = React.forwardRef(function NumberSelector(props, ref) {
+
+
+
+  
+
+  const handleChange = (event) => {
+    const value = event.target.value;
+    
+
+    if (props.handleChanged) {
+      props.handleChanged(value); // Notify parent component of the change
+    }
+
+    console.log(`The input value is: ${value}`);
+   
+  };
+
+  
+
+
   return (
     <BaseNumberInput
       slots={{
@@ -14,7 +35,15 @@ const NumberSelector = React.forwardRef(function NumberSelector(props, ref) {
         incrementButton: StyledButton,
         decrementButton: StyledButton,
       }}
+
+
       slotProps={{
+
+        input: {
+          onChange: handleChange,
+        },
+
+
         incrementButton: {
           children: '▴',
         },
@@ -29,6 +58,12 @@ const NumberSelector = React.forwardRef(function NumberSelector(props, ref) {
 });
 
 export default function NumberInputIntroduction(props) {
+
+
+
+
+
+
   return (
     <NumberSelector aria-label="Demo number input" placeholder={props.placeholderText} />
   );
@@ -64,9 +99,8 @@ const StyledInputRoot = styled('div')(
   color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
   background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
   border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
-  box-shadow: 0px 2px 4px ${
-    theme.palette.mode === 'dark' ? 'rgba(0,0,0, 0.5)' : 'rgba(0,0,0, 0.05)'
-  };
+  box-shadow: 0px 2px 4px ${theme.palette.mode === 'dark' ? 'rgba(0,0,0, 0.5)' : 'rgba(0,0,0, 0.05)'
+    };
   display: grid;
   grid-template-columns: 1fr 19px;
   grid-template-rows: 1fr 1fr;

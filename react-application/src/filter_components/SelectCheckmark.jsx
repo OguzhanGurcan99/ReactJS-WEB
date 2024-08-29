@@ -31,6 +31,8 @@ export default function SelectCheckmark(props) {
       // On autofill we get a stringified value.
       typeof value === 'string' ? value.split(',') : value,
     );
+
+    props.handleChanged(event.target.value)
   };
 
   return (

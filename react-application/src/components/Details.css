@@ -11,15 +11,68 @@
     align-items: center;
 }
 
+/* Container for the table */
+.tableContainer {
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the table */
 .carDetailsTable {
     width: 100%;
     border-collapse: collapse;
+    background-color: #f9f9f9;
 }
 
-th,
-td {
-    border: 1px solid black;
+/* Table header styling */
+.carDetailsTable th {
+    background-color: #3f51b5;
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
+}
+
+/* Table cell styling */
+.carDetailsTable td {
     padding: 10px;
+    border-bottom: 1px solid #ddd;;
+    font-size: 14px;
+    color: #333;;
+}
+
+/* Row styling */
+.carDetailsTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.carDetailsTable tr:hover {
+    background-color: #e0e0e0;
+}
+
+/* Adjustments for the first column */
+.carDetailsTable td:first-child,
+.carDetailsTable th:first-child {
+    font-weight: bold;
+}
+
+/* Paper (outer container) styling */
+.paperContainer {
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.favoritesButton{
+    width: 100%;
+    height: 40px;
+    
+    color: black;
+}
+
+.favoritesButton:hover{
+    background-color: green;
 }
 
 .emptyDetailsBar {
