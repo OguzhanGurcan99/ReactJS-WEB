@@ -5,7 +5,7 @@ import Details from '../../Details';
 
 import myData from '../../../data/car.json';
 
-import React, { useState, useEffect , useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { FavorListContext } from "../../FavorListContext";
 
 const Sale = () => {
@@ -47,16 +47,23 @@ const Sale = () => {
       const matchesBrand = filterData.brand.length === 0 || filterData.brand.includes(json.brand);
       const matchesColor = filterData.color.length === 0 || filterData.color.includes(json.color);
       const matchesType = filterData.type.length === 0 || filterData.type.map(type => type.toLowerCase()).includes(json.type.toLowerCase());
+      const matchesMinYear = filterData.minYear === 0 || json.year >= filterData.minYear;
+      const matchesMaxYear = filterData.maxYear === 0 || json.year <= filterData.maxYear;
+      const matchesMinKm = filterData.minKm === 0 || json.kilometer >= filterData.minKm;
+      const matchesMaxKm = filterData.maxKm === 0 || json.kilometer <= filterData.maxKm;
 
-      return matchesCity && matchesTown && matchesBrand && matchesColor && matchesType;
+      
+      return matchesCity && matchesTown && matchesBrand && matchesColor && matchesType &&
+        matchesMinYear && matchesMaxYear && matchesMinKm && matchesMaxKm;
+
     });
 
     setOutputCars(userFilter);
   };
 
 
-  const {favorList, setFavorList} = useContext(FavorListContext)
-  
+  const { favorList, setFavorList } = useContext(FavorListContext)
+
   const addToFavList = (favCar) => {
     setFavorList((prevFavorList) => {
       // Eğer favCar zaten listede varsa, aynı listeyi döndür
@@ -67,19 +74,19 @@ const Sale = () => {
       return [...prevFavorList, favCar];
     });
   };
-  
-    return (
-      <div className='fullPageSale'>
-        <Filter onFilterApply={filterUserRequest}></Filter>
-        <div className='cardContainer'>
-          {onScreenList.map((car, index) => (
-            <Car carObject={car} showDetails={displayDetailsBar} ></Car>
-          ))}
-        </div>
-        <Details isClicked={showDetailBar} currentCar={selectedCar} addFavor={addToFavList}></Details>
-      </div>
-    );
-  }
-    ;
 
-  export default Sale;
+  return (
+    <div className='fullPageSale'>
+      <Filter onFilterApply={filterUserRequest}></Filter>
+      <div className='cardContainer'>
+        {onScreenList.map((car, index) => (
+          <Car carObject={car} showDetails={displayDetailsBar} ></Car>
+        ))}
+      </div>
+      <Details isClicked={showDetailBar} currentCar={selectedCar} addFavor={addToFavList}></Details>
+    </div>
+  );
+}
+  ;
+
+export default Sale;

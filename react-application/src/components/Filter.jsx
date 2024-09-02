@@ -62,11 +62,11 @@ const Filter = ({onFilterApply}) => {
     const [color, setColor] = useState('');
     const [type, setType] = useState('');
 
-    const [minYear, setMinYear] = useState("");
-    const [maxYear, setMaxYear] = useState("");
+    const [minYear, setMinYear] = useState(0);
+    const [maxYear, setMaxYear] = useState(0);
 
-    const [minKm, setMinKm] = useState("");
-    const [maxKm, setMaxKm] = useState("");
+    const [minKm, setMinKm] = useState(0);
+    const [maxKm, setMaxKm] = useState(0);
     
     const handleChangeCity = (param) => {
         setCity(param);
@@ -97,6 +97,14 @@ const Filter = ({onFilterApply}) => {
         setMaxYear(param);
     }
 
+    const handleChangeMinKm = (param) => {
+        setMinKm(param);
+    }
+
+    const handleChangeMaxKm = (param) => {
+        setMaxKm(param);
+    }
+
     const handleClick = () => {
         setisUserFiltering(true);
         
@@ -104,21 +112,18 @@ const Filter = ({onFilterApply}) => {
                             "town" : town,
                             "brand": brand,
                             "color" : color,
-                            "type": type};
+                            "type": type,
+                            "minYear": minYear,
+                            "maxYear": maxYear,
+                            "minKm": minKm,
+                            "maxKm": maxKm
+                        };
         onFilterApply(filterData);
     }
 
-    /*
-    console.log("City " + " : " + city);
-    console.log("Town " + " : " + townList);
-    console.log("Brand " + " : " + brand);
-    console.log("Color " + " : " + color);
-    console.log("Type " + " : " + type);
-    console.log("Year min " + " : " + minYear);
-    console.log("Year max " + " : " + maxYear);
-    console.log("Km min " + " : " + minKm);
-    console.log("Km max " + " : " + maxKm);
-*/
+    
+
+
 
     return <div className='filter'>
 
@@ -143,14 +148,11 @@ const Filter = ({onFilterApply}) => {
         <div className='yearFilter'>
             <NumberSelector placeholderText="year min" handleChanged={(param) => handleChangeMinYear(param)} ></NumberSelector>
             <NumberSelector placeholderText="year max" handleChanged={(param) => handleChangeMaxYear(param)}></NumberSelector>
-
         </div>
 
-
         <div className='kmFilter'>
-
-            <NumberSelector placeholderText="km min"></NumberSelector>
-            <NumberSelector placeholderText="km max"></NumberSelector>
+            <NumberSelector placeholderText="km min" handleChanged={(param) => handleChangeMinKm(param)}></NumberSelector>
+            <NumberSelector placeholderText="km max" handleChanged={(param) => handleChangeMaxKm(param)}></NumberSelector>
         </div>
 
         <div className='priceSaleFilter'>
