@@ -52,15 +52,12 @@ const Sale = () => {
       const matchesMinKm = filterData.minKm === 0 || json.kilometer >= filterData.minKm;
       const matchesMaxKm = filterData.maxKm === 0 || json.kilometer <= filterData.maxKm;
 
-      
       return matchesCity && matchesTown && matchesBrand && matchesColor && matchesType &&
         matchesMinYear && matchesMaxYear && matchesMinKm && matchesMaxKm;
-
     });
 
     setOutputCars(userFilter);
   };
-
 
   const { favorList, setFavorList } = useContext(FavorListContext)
 

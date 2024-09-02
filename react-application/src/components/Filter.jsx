@@ -48,13 +48,11 @@ const typeList = [
     "Station Wagon"
 ]
 
-const Filter = ({onFilterApply}) => {
-
-    const [isUserFiltering, setisUserFiltering] = useState(false);
+const Filter = ({ onFilterApply }) => {
 
     const [cityList, setCityList] = useState(myCities.map(city => city.name));
     const [townList, setTownList] = useState([]);
-    
+
     const [city, setCity] = useState('');
     const [town, setTown] = useState("");
 
@@ -67,7 +65,7 @@ const Filter = ({onFilterApply}) => {
 
     const [minKm, setMinKm] = useState(0);
     const [maxKm, setMaxKm] = useState(0);
-    
+
     const handleChangeCity = (param) => {
         setCity(param);
         setTownList(myCities.filter(x => x.name === param)[0].counties);
@@ -80,7 +78,7 @@ const Filter = ({onFilterApply}) => {
     const handleChangeBrand = (param) => {
         setBrand(param);
     }
-    
+
     const handleChangeColor = (param) => {
         setColor(param);
     }
@@ -106,24 +104,19 @@ const Filter = ({onFilterApply}) => {
     }
 
     const handleClick = () => {
-        setisUserFiltering(true);
-        
-        const filterData = {"city" : city,
-                            "town" : town,
-                            "brand": brand,
-                            "color" : color,
-                            "type": type,
-                            "minYear": minYear,
-                            "maxYear": maxYear,
-                            "minKm": minKm,
-                            "maxKm": maxKm
-                        };
+        const filterData = {
+            "city": city,
+            "town": town,
+            "brand": brand,
+            "color": color,
+            "type": type,
+            "minYear": minYear,
+            "maxYear": maxYear,
+            "minKm": minKm,
+            "maxKm": maxKm
+        };
         onFilterApply(filterData);
     }
-
-    
-
-
 
     return <div className='filter'>
 

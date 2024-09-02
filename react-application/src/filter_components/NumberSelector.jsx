@@ -64,13 +64,16 @@ const StyledInputRoot = styled('div')(
   color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
   background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
   border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
-  box-shadow: 0px 2px 4px ${theme.palette.mode === 'dark' ? 'rgba(0,0,0, 0.5)' : 'rgba(0,0,0, 0.05)'};
+  box-shadow: 0px 2px 4px ${theme.palette.mode === 'dark' ? 'rgba(0,0,0, 0.5)' : 'rgba(0,0,0, 0.05)'
+    };
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 19px;
+  grid-template-rows: 1fr 1fr;
   overflow: hidden;
   column-gap: 8px;
   padding: 4px;
   width: 90px;
+  
 
   &.${numberInputClasses.focused} {
     border-color: ${blue[400]};
@@ -94,7 +97,8 @@ const StyledInputElement = styled('input')(
   font-family: inherit;
   font-weight: 400;
   line-height: 1.5;
-  grid-column: 1;
+  grid-column: 1/2;
+  grid-row: 1/3;
   color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
   background: inherit;
   border: none;
